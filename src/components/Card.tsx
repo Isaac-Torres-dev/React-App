@@ -1,5 +1,37 @@
-function Card() {
-    return <h1>Hola mundo</h1>
+interface Props {
+  body: string;
 }
 
-export default Card
+function Card({ body }: Props) {
+  return (
+    <div
+      className="card"
+      style={{
+        width: '350px',
+      }}
+    >
+      <div className="card-body">
+        {/* <CardBody /> */}
+        {body}
+      </div>
+    </div>
+  );
+}
+interface CardBodyProps {
+    title: string
+    text: string
+}
+
+export function CardBody(props: CardBodyProps) {
+    const { title, text } = props
+    return (
+        <>
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">
+            {text}
+        </p>
+        </>
+    );
+}
+
+export default Card;
