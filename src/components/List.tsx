@@ -1,13 +1,15 @@
 // import { MouseEvent } from "react";
 
+import { useState } from "react";
+
 type Props = {
   data: string[];
 };
 
 function List({ data }: Props) {
-  let index = 1;
+  const [index, setIndex] = useState(1);
   const handleClick = (e: string, indice: number) => {
-    index = indice;
+    setIndex(indice);
     console.log(`Elemento ${e} Indice ${indice}`);
   };
   return (
