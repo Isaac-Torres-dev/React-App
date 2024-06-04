@@ -5,7 +5,9 @@ type Props = {
 };
 
 function List({ data }: Props) {
+  let index = 1;
   const handleClick = (e: string, indice: number) => {
+    index = indice;
     console.log(`Elemento ${e} Indice ${indice}`);
   };
   return (
@@ -14,7 +16,7 @@ function List({ data }: Props) {
         <li
           onClick={() => handleClick(elemento, indice)}
           key={elemento}
-          className="list-group-item"
+          className={`list-group-item ${index == indice ? "active" : ""}`}
         >
           {elemento}
         </li>
