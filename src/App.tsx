@@ -3,8 +3,12 @@
 import Card, { CardBody } from "./components/Card";
 import List from "./components/List";
 
-function App() {
-  const list = ["Goku", "Tanjiro", "Eren"];
+type Props = {
+  array: string[]
+}
+
+function App(Props: Props) {
+  const { array } = Props;
   const handleSelect = (elemento: string) => {
     console.log("imprimiendo", elemento);
   };
@@ -15,8 +19,8 @@ function App() {
   return (
     <Card>
       <CardBody title="Hola Mundo" text="Este es el parrafo de texto" />
-      <List data={list} onSelect={handleSelect} />
-      <List data={list} onSelect={handleSelect2} />
+      <List data={array} onSelect={handleSelect} />
+      {/* <List data={array} onSelect={handleSelect2} /> */}
     </Card>
   );
 }
