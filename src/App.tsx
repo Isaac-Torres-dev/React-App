@@ -20,7 +20,7 @@ function App(Props: Props) {
     <Card>
       <CardBody title="Hola Mundo" text="Este es el parrafo de texto" />
       <List data={array} onSelect={handleSelect} />
-      {/* <List data={array} onSelect={handleSelect2} /> */}
+      <List data={array} onSelect={handleSelect2} />
     </Card>
   );
 }
