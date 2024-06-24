@@ -3,10 +3,12 @@
 import Card, { CardBody } from "./components/Card";
 import List from "./components/List";
 import Buttom from "./components/Buttom";
+import Check from "./components/Check";
 import { useState } from "react";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); //hook para el estado del botón
+   //hook para el estado del check
   const handleClick = () => setIsLoading(!isLoading);
 
   const list = ["Goku", "Tanjiro", "Eren"];
@@ -35,6 +37,7 @@ function App() {
       <Buttom isLoading={isLoading} onClick={handleClick}>
         Texto del botón
       </Buttom>
+      <Check isLoading={isLoading} setIsLoading={setIsLoading}></Check>
     </Card>
   );
 }
