@@ -1,12 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 type Props = {
-  isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Check = ({ isLoading, setIsLoading }: Props) => {
+const Check = ({ setIsLoading }: Props) => {
   const [isChecked, setIsChecked] = useState(false);
+
   // Manejador de eventos para el checkbox
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
@@ -16,15 +16,19 @@ const Check = ({ isLoading, setIsLoading }: Props) => {
       "Valor del estado del hook check antes de actualizar:",
       isChecked
     );
-    // setIsLoading(!isLoading);
   };
+
   // useEffect para observar cambios en isChecked
   useEffect(() => {
     console.log(
       "Valor del estado del hook check después de actualizar:",
       isChecked
     );
-  }, [isChecked]);
+
+    // Actualiza el estado isLoading en el componente padre basado en el nuevo valor de isChecked
+    setIsLoading(isChecked);
+  }, [isChecked, setIsLoading]);
+
   return (
     <div className="form-check">
       <input
@@ -33,7 +37,7 @@ const Check = ({ isLoading, setIsLoading }: Props) => {
         value=""
         id="flexCheckDefault"
         onChange={handleCheckboxChange}
-        /* Truco para saber que evento se esta ejecutando*/
+        /* Truco para saber que evento se esta ejecutando */
         // onChange={(e) => console.log(e)}
       />
       <label className="form-check-label" htmlFor="flexCheckDefault">
