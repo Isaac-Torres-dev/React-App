@@ -1,44 +1,23 @@
-// import Titulo from './components/Titulo'
-// import Card from "./components/Card";
-import Card, { CardBody } from "./components/Card";
+import Card from "./components/Card";
 import List from "./components/List";
 import Buttom from "./components/Buttom";
-import Check from "./components/Check";
 import { useState } from "react";
+import CenteredCard from "./components/CenteredCard";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false); //hook para el estado del botón
-  //hook para el estado del check
-  const handleClick = () => setIsLoading(!isLoading);
+  const [data, setData] = useState(["Goku", "Tanjiro", "Eren"]);
 
-  const list = ["Goku", "Tanjiro", "Eren"];
-  const list2: string[] = ["Ranma", "Purpura"];
-  const handleSelect = (elemento: string) => {
-    console.log("imprimiendo", elemento);
-  };
-  const handleSelect2 = (elemento: string) => {
-    console.log("mostrando", elemento);
-  };
-
-  const contenido =
-    list2.length || list.length ? (
-      <>
-        <List data={list} onSelect={handleSelect} />
-        <List data={list2} onSelect={handleSelect2} />
-      </>
-    ) : (
-      "Sin elementos para mostrar"
-    );
+  const addMinium = () => setData([...data, "minium"]);
+  const deleteMinium = () => setData(data.slice(0, -1));
 
   return (
-    <Card>
-      <CardBody title="Components" text="Este es el parrafo de texto" />
-      {contenido}
-      <Buttom isLoading={isLoading} onClick={handleClick}>
-        Texto del botón
-      </Buttom>
-      <Check setIsLoading={setIsLoading}></Check>
-    </Card>
+    <CenteredCard>
+      <Buttom onClick={addMinium}>Agregar</Buttom>
+      <Buttom onClick={deleteMinium}>Eliminar</Buttom>
+      <Card>
+        <List data={data}></List>
+      </Card>
+    </CenteredCard>
   );
 }
 
