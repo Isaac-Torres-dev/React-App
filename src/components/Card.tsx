@@ -4,14 +4,10 @@ interface Props {
   children: ReactNode;
 }
 
-function Card({ children }: Props) { //En este componente estamos aplicando una intefaz a la propiedades que se pasaran como parametros
+function Card({ children }: Props) {
+  //En este componente estamos aplicando una intefaz a la propiedades que se pasaran como parametros
   return (
-    <div
-      className="card"
-      style={{
-        width: "350px",
-      }}
-    >
+    <div className="card" style={{ width: "350px" }}>
       <div className="card-body">
         {/* <CardBody /> */}
         {children}

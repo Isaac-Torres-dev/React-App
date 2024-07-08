@@ -1,11 +1,8 @@
-import React from 'react'
 // Ctrl + Shift + R nos abre los snnipets de ract
-type Props = {}
+type Props = {};
 
 function Circulo({}: Props) {
-  return (
-    <div>Circulo</div>
-  )
+  return <div>Circulo</div>;
 }
 
-export default Circulo
+export default Circulo;

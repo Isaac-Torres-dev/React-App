@@ -9,7 +9,8 @@ type Props = {
 
 function List({ data, onSelect }: Props) {
   const [index, setIndex] = useState(1); // Solo cuando usemos el setIndex es cuando la funcion de List completa se ejecuta y react renderiza de nuevo
-  const handleClick = (event: string, indice: number) => { // 
+  const handleClick = (event: string, indice: number) => {
+    //
     setIndex(indice);
     onSelect?.(event); //Funcionalidad de TS donde si es que esta funcion se encuentra definida se ejecuta.
     console.log(`Elemento ${event} Indice ${indice}`);
